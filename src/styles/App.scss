@@ -1,0 +1,244 @@
+#root,
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: #7e8c8d;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+  overflow: hidden;
+}
+
+body {
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.2s;
+  background-size: cover;
+}
+
+// 全局类
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 700px;
+  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539338113473&di=0fe46753d77284a6538858bf9858d42b&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fd0e62c2253f57926128817ac9119ca18772f941c.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f4f4f6; // filter: blur(10px);
+  box-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+}
+
+.panel {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  transition: all 1s ease-in-out;
+  .card {
+    width: 145px;
+    height: 200px;
+    margin-right: 54px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    .album-img {
+      width: 100%;
+      height: 145px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .title {
+      height: 16px;
+      line-height: 16px;
+      font-size: 14px;
+      color: #000;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+    .creator {
+      font-size: 12px;
+      color: #a4a4a5;
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.ListPage {
+  font-size: 12px;
+  color: #b0b0b1;
+  text-align: left;
+  .item {
+    display: flex;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 15px;
+    cursor: pointer;
+    justify-content: space-between;
+    &:nth-child(even) {
+      background-color: #f4f4f6;
+    }
+    &:nth-child(odd) {
+      background-color: #fafafc;
+    }
+    &:hover {
+      color: #df3b3b;
+    }
+    >div {
+      max-width: 250px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.header {
+  height: 40px;
+  display: flex;
+  padding: 0 10px;
+  margin: 0;
+  background: #fff;
+  padding: 0 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+  a {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  li {
+    line-height: 40px;
+  }
+}
+
+.PageDetail {
+  .page_Header {
+    display: flex;
+    padding: 6px 0;
+    height: 220px;
+    .cover_img {
+      flex: 0 0 200px;
+      width: 200px;
+      height: 200px;
+      margin-right: 20px;
+      position: relative;
+      background: #ccc;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .cover_right {
+      font-size: 14px;
+      flex: 1;
+      .title {
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+
+.App {
+  width: 1000px;
+  height: 670px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f4f4f6;
+  position: relative;
+  z-index: 50;
+  .container {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+    transition: all 0.2s;
+    z-index: 2;
+  }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: 400;
+  vertical-align: baseline;
+  .container {
+    font-size: 14px;
+    color: #333333;
+    text-align: left;
+    .item {
+      cursor: pointer;
+      display: flex;
+      height: 45px;
+      line-height: 45px;
+      padding-left: 15px;
+      &:nth-child(odd) {
+        background-color: #f4f4f6;
+      }
+    }
+  }
+}
+
+.playCD {
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 50%;
+  min-height: 200px;
+  background: #333333;
+  .album-img {
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-size: cover;
+    box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset, 0 .5em 1em rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+    background: hsla(0, 0%, 100%, .3);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .rotate-img {
+    animation: rotate infinite 20s linear;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

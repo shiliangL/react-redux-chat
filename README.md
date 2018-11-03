@@ -33,7 +33,7 @@ import { connect } from "react-redux";
 
 ```
 
-### ! create-react-app 中使用装饰器
+### create-react-app 中使用装饰器
 安装 
 ```
 npm install --save-dev @babel/plugin-proposal-decorators

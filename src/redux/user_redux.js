@@ -7,30 +7,45 @@ const initState={
 }
 // reducer
 export const user = (state=initState,actions)=>{
-  return state
+  switch (actions.type) {
+    case 'LOGIN_SUCCESS':
+      return { ...state, meg: null, isAuth: true, redirectTo:'/userInfo' }
+
+    case 'ERROR_MSG':
+      return { ...state, meg: actions.meg, isAuth: false, hasError: true }
+
+    case 'REGISTER_SUCCESS':
+      return { ...state, meg: null, isAuth: true, redirectTo: '/userInfo' }
+    default:
+    return state
+  }
 }
 
+// actions Type
 const errorMsg = (meg)=>{
   return { meg, type:'ERROR_MSG'}
 }
 
+
+// actions
 export const userLogin = (props) => {
   if (!props.name || !props.key) return errorMsg('请输入')
   return dispatch=>{
     login(props).then(res=>{
-      console.log(res,'xx')
+      dispatch({type:'LOGIN_SUCCESS'})
     }).catch(e=>{
-      errorMsg(e.msg)
+      dispatch({ type: 'ERROR_MSG',data: e })
     })
   }
 }
+
 export const userRegisger = (props) => {
   if (!props.name || !props.key) return errorMsg('请输入')
   return dispatch=>{
     regisger(props).then(res=>{
-      console.log(res,'xx')
+      dispatch({ type: 'REGISTER_SUCCESS' })
     }).catch(e=>{
-      errorMsg(e.msg)
+      dispatch({ type: 'ERROR_MSG' })
     })
   }
 }

@@ -19,9 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <RoutePage />
-      </div>
+      <RoutePage />
     );
   }
 }

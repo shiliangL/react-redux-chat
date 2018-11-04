@@ -15,6 +15,6 @@ export function md5keyRa(L){
 }
 
 //跳转地址
-export const redirectPath = ({ type, userImg }) => {
+export const redirectTo = ({ type, userImg }) => {
 
 }

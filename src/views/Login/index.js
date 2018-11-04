@@ -2,7 +2,15 @@
 
 import React, { Component } from 'react';
 import { List, InputItem, Flex, Button } from 'antd-mobile';
+import { connect } from 'react-redux';
+import { userLogin } from "@/redux/user_redux";
 
+@connect(
+  (state) => (state.user),
+  {
+    userLogin
+  }
+)
 class Login extends Component {
 
   toRegister = () => {
@@ -10,20 +18,23 @@ class Login extends Component {
   }
 
   toLogin = () => {
-    console.log(this.InputItem.state.value)
-    if (this.name) {
-      console.log(this.name)
+    const { userLogin } = this.props
+    const data = {
+      name: this.InputItemName.state.value,
+      key: this.InputItemKey.state.value,
     }
+    userLogin( data )
   }
 
   render() {
     return (
-      <div>
+      <div className="front-page">
+        <div className="front-content">
         <List renderHeader={() => '欢迎光临'}>
-          <InputItem clear ref={el => this.InputItemName = el } placeholder="">
+          <InputItem ref={el => this.InputItemName = el } placeholder="">
             名称
           </InputItem>
-          <InputItem clear ref={el => this.InputItemKey = el}  placeholder="">
+          <InputItem ref={el => this.InputItemKey = el}  placeholder="">
             密码
           </InputItem>
         </List>
@@ -36,6 +47,7 @@ class Login extends Component {
             <Button size="small" onClick={this.toRegister}>注册</Button>
           </Flex.Item>
         </Flex>
+        </div>
       </div>
     );
   }

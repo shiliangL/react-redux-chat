@@ -7,6 +7,7 @@ const service = axios.create({
 
 // request interceptor
 service.interceptors.request.use(config => {
+  console.log('请求开始')
   // Do something before request is sent
   return config
 }, error => {
@@ -18,6 +19,7 @@ service.interceptors.request.use(config => {
 // respone interceptor
 service.interceptors.response.use(
   response => {
+    console.log('请求结束')
     // code
     const code = response.status
     if (code !== 200) {

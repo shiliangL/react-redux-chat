@@ -41,16 +41,7 @@ Router.post('/regisger',(req,res)=>{
 })
 
 Router.post('/login', (req, res) => {
-  const { name, key, type } = req.body
-  User.findOne({ name }, (err, doc) => {
-    if (doc) return res.json({ code: 1, msg: '重复' })
-    User.create({ name, key, type }, (err, doc) => {
-      if (err) {
-        return res.json({ code: 1, msg: '服务器异常' })
-      }
-      return res.json({ code: 0, msg: '添加成功' })
-    })
-  })
+  return res.json({ code: 0, msg: '添加成功' })
 })
 
 module.exports = Router

@@ -7,8 +7,6 @@ import { createStore,applyMiddleware,compose } from 'redux'
 import thunk from 'redux-thunk'
 import App from './App';
 import { rootReducer } from '@/redux' 
-import * as serviceWorker from './serviceWorker';
-
 
 let store = createStore(rootReducer, 
 compose(
@@ -16,7 +14,6 @@ compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )  
 )
-  
 
 ReactDOM.render(
   <Provider store={store}>
@@ -24,9 +21,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();

@@ -47,7 +47,6 @@ export function songDetail(params) {
   })
 }
 
-
 export function fetchUserInfo(params) {
   return service({
     url: '/api/userInfo',
@@ -55,6 +54,7 @@ export function fetchUserInfo(params) {
     params
   })
 }
+
 export function regisger(data) {
   return service({
     url: '/api/regisger',
@@ -62,6 +62,7 @@ export function regisger(data) {
     data
   })
 }
+
 export function login(data) {
   return service({
     url: '/api/login',

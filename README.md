@@ -1,6 +1,7 @@
 
-###手把手教你从前端到后台实现登录注册功能
-#####使用react全家桶,更好的理解redux,用装饰器的写法使用 react-redux，socket-io即时通信
+### 手把手教你从前端到后台实现登录注册功能
+
+##### 使用react全家桶,更好的理解redux,用装饰器的写法使用 react-redux，socket-io即时通信
 
 > 本文基于MacOS系统,基本的开发环境安装配置如果没有安装好请自行百度安装
 ### ----------前后端配置安装（MacOS）-------------
@@ -13,6 +14,7 @@
 - 已默认配置启动 mongod --config /usr/local/etc/mongod.conf
 - mongo 图形界面
 - 推荐界面管理工具 [RoBo3T](https://robomongo.org/)
+
 ![RoBo3T](./screenshots/RoBo3T.png)
 - 后台启动mongodb用工具成功连接数据库
 
@@ -97,7 +99,6 @@ class Register extends Component {
 ```
 npm install --save-dev @babel/plugin-proposal-decorators
 配置（ npm run eject )
-```
   "babel": {
     "presets": [
       "react-app"
@@ -120,12 +121,7 @@ npm install --save-dev @babel/plugin-proposal-decorators
   },
 ```
 
-
-```
-
 ### --------------服务器后台--------------
-
-
 > 基于node,express开发
 
 - app.get,app.post,开发get和post接口

@@ -17,7 +17,6 @@ class RoutePage extends Component {
             <Route path="/register" component={Register} />
             <Route path="/userInfo" component={UserInfo} />
             <Route path="/home" component={Home} />
-            <Route path="/pageDetail/:id" component={PageDetail} />
             <Route path="/contact" component={Contact} />
           </Switch>
         </div>

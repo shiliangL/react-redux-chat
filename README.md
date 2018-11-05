@@ -40,7 +40,7 @@ import { connect } from "react-redux";
 安装 
 ```
 npm install --save-dev @babel/plugin-proposal-decorators
-配置（ npm run /暴露配置之后）
+配置（ npm run eject )
 ```
   "babel": {
     "presets": [
@@ -90,4 +90,4 @@ npm i mongoose -S
 
 >密码 cmd5加密+加严
 
--npm i utility -S
+-npm i utility -S

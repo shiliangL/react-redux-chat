@@ -1,6 +1,7 @@
 
 
 import React, { Component } from 'react';
+import { Redirect } from "react-router-dom";
 import { List, InputItem, Flex, Button } from 'antd-mobile';
 import { connect } from 'react-redux';
 import { userLogin } from "@/redux/user_redux";
@@ -8,7 +9,7 @@ import { userLogin } from "@/redux/user_redux";
 @connect(
   (state) => (state.user),
   {
-    userLogin
+    userLogin,
   }
 )
 class Login extends Component {
@@ -27,9 +28,12 @@ class Login extends Component {
   }
 
   render() {
+    const { redirectTo } = this.props
     return (
       <div className="front-page">
         <div className="front-content">
+          {/* 登录成功调到首页 */}
+          {redirectTo ? <Redirect to={redirectTo} /> : null}
         <List renderHeader={() => '欢迎光临'}>
           <InputItem ref={el => this.InputItemName = el } placeholder="">
             名称

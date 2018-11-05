@@ -1,3 +1,39 @@
+
+> 本文基于MacOS系统,基本的开发环境安装配置如果没有安装好请自行百度安装
+### ----------前后端配置安装（MacOS）-------------
+
+##### 后台数据库 mongoDB 安装
+>使用homebrew安装mongodb
+- brew install mongodb
+- mongo --version 查看安装版本
+- 新版开箱即用,不用像之前要配什么DB文件了（系统环境可能需要配置一下）
+- 已默认配置启动 mongod --config /usr/local/etc/mongod.conf
+- mongo 图形界面
+- 推荐界面管理工具 [RoBo3T](https://robomongo.org/)
+![RoBo3T](./screenshots/RoBo3T.png)
+- 后台启动mongodb用工具成功连接数据库
+
+##### 后端基于node,express开发,后台代码-service文件夹中
+
+> 本地后台服务开发调试 nodemon 启动后台(后台代码更新自动重启服务器),安装
+npm install -g nodemon
+
+> 数据库mongodb,mongodb配合express使用需要插件mongoose
+npm i mongoose -S
+
+```
+const mongoose = require('mongoose')
+const DB_URL = 'mongodb://127.0.0.1:27017/cmm'
+
+//链接数据库
+mongoose.connect(DB_URL)
+mongoose.connection.on('connected', () => {
+  console.log('数据库链接成功')
+})
+
+```
+
+
 ### --------------界面--------------
 <!-- ![登录页面](./screenshots/login.png) -->
 
@@ -66,28 +102,24 @@ npm install --save-dev @babel/plugin-proposal-decorators
 
 
 ```
-代理接口   // "proxy": "http://39.108.68.85:3001/",
 
 ### --------------服务器后台--------------
 
 
 > 基于node,express开发
 
--app.get,app.post,开发get和post接口
--app.use使用模块
--res.send;res.json;res.sendfile
+- app.get,app.post,开发get和post接口
+- app.use使用模块
+- res.send;res.json;res.sendfile
 
-> 本地服务器开发调试 nodemon 启动后台
-
-> 数据库mongodb,mongodb配合express使用需要插件mongoose
-
-npm i mongoose -S
 
 > mongodb配合express进阶
--mongodb独立工具函数
--express使用body-parser支持post参数
--使用cookie-parser储存登录信息cookie
 
->密码 cmd5加密+加严
+- mongodb独立工具函数
 
--npm i utility -S
+- express使用body-parser支持post参数
+
+- 使用cookie-parser储存登录信息cookie
+
+>密码 cmd5加密+加严 安装 npm i utility -S
+

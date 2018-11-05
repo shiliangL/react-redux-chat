@@ -3,6 +3,7 @@ const Router = express.Router()
 const Model = require('./model')
 const User = Model.getModel('user')
 const utils = require('utility')
+const _filter = { key: 0, __v:0 }
  
 // 密码加密加严
 function md5keyRa(key){
@@ -13,7 +14,7 @@ const rd = 'shilianglAllAwayOnlinex2018'
 Router.get('/userInfo',(req,res)=>{
   const { userid } = req.cookies
   if (!userid) return res.json({ code: 503, msg: '登录过期' })
-  User.findOne({ _id: userid }, { key: 0 }, (err, doc) => {
+  User.findOne({ _id: userid }, _filter, (err, doc) => {
     if (err) return res.json({ code: 1, msg: '系统异常' })
     return res.json({ code: 0, msg: '获取个人信息成功',data:doc })
   })
@@ -40,7 +41,7 @@ Router.post('/regisger',(req,res)=>{
 
 Router.post('/login', (req, res) => {
   const { name, key } = req.body
-  User.findOne({ name, key: md5keyRa(key) },{key:0},(err,doc)=>{
+  User.findOne({ name, key: md5keyRa(key) }, _filter,(err,doc)=>{
     if (err) {
       return res.json({ code: 1, msg: '服务器异常' })
     }

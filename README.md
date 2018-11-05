@@ -1,25 +1,32 @@
 
+### 手把手教你从前端到后台实现登录注册功能
+##### 使用react全家桶,更好的理解redux,用装饰器的写法使用 react-redux，socket-io即时通信
+
 > 本文基于MacOS系统,基本的开发环境安装配置如果没有安装好请自行百度安装
 ### ----------前后端配置安装（MacOS）-------------
 
-##### 后台数据库 mongoDB 安装
+##### 后台数据库mongoDB安装
 >使用homebrew安装mongodb
 - brew install mongodb
 - mongo --version 查看安装版本
-- 新版开箱即用,不用像之前要配什么DB文件了（系统环境可能需要配置一下）
+- 新版开箱即用，不用像之前要配什么DB文件了（系统环境可能需要配置一下）
 - 已默认配置启动 mongod --config /usr/local/etc/mongod.conf
 - mongo 图形界面
-- 推荐界面管理工具 [RoBo3T](https://robomongo.org/)
+- 推荐界面管理工具 [RoBo3T](https://robomongo.org/)
 ![RoBo3T](./screenshots/RoBo3T.png)
 - 后台启动mongodb用工具成功连接数据库
 
 ##### 后端基于node,express开发,后台代码-service文件夹中
 
 > 本地后台服务开发调试 nodemon 启动后台(后台代码更新自动重启服务器),安装
+```
 npm install -g nodemon
+```
 
 > 数据库mongodb,mongodb配合express使用需要插件mongoose
+```
 npm i mongoose -S
+```
 
 ```
 const mongoose = require('mongoose')
@@ -63,13 +70,26 @@ ReactDOM.render(
 
 ```
 
-- 使用 connect 链接 组件与 状态中心, connect接收两个参数（其实有4个数据）
+- 使用 connect 链接 组件与 状态中心, connect接收两个参数（其实有4个参数）
 > 1-映射数据 可以理解为 state 
 > 2-映射方法 
 
 ```
 import { connect } from "react-redux";
+@connect(
+  (state) => (state.user),
+  {
+    userRegisger
+  }
+)
+class Register extends Component {
 
+  render(){
+    return null
+  }
+}
+
+用装饰器的写法确实比之前的写法更简洁了
 ```
 
 ### create-react-app 中使用装饰器

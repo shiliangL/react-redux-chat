@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { ListPage,List ,UserInfo, Contact } from "@/views";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect} from "react-router-dom";
 import { NavBar } from 'antd-mobile';
 import NavTabBar from '@/components/NavTabBar';
 
@@ -58,9 +58,10 @@ class Home extends Component {
 
     return (
       <div style={{ height: '100%'}}>
-        <NavBar mode="dark">{navLists.find(item => item.path === location.pathname).title}</NavBar>
+        <NavBar mode="dark">{location.pathname==='/'? '首页': navLists.find(item => item.path === location.pathname).title}</NavBar>
         <div className="content" style={{ marginTop:''}}>
           <Switch>
+            {location.pathname === '/' ? <Redirect to='/listPage' /> : null}
             {
               navLists.map(item=>{
                 return <Route key={item.path}  path={item.path} component={item.component} />

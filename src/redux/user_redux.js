@@ -31,8 +31,8 @@ const errorMsg = (meg)=>{
 export const userLogin = (props) => {
   if (!props.name || !props.key) return errorMsg('请输入')
   return dispatch=>{
-    login(props).then(res=>{
-      dispatch({type:'LOGIN_SUCCESS'})
+    login(props).then(({code})=>{
+      if (code === 0) dispatch({ type: 'LOGIN_SUCCESS' })
     }).catch(e=>{
       dispatch({ type: 'ERROR_MSG',data: e })
     })

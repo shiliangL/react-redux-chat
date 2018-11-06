@@ -1,7 +1,6 @@
-// import { Scrollbars } from 'react-custom-scrollbars';
 import React, { Component } from 'react';
-import { Route, NavLink, BrowserRouter, Switch } from "react-router-dom";
-import { Login, Register, Home, UserInfo, Contact, PageDetail } from "@/views";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+import { Login, Register, Home } from "@/views";
 import AuthRoute from "@/components/AuthRoute";
 
 
@@ -15,9 +14,7 @@ class RoutePage extends Component {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/userInfo" component={UserInfo} />
-            <Route path="/home" component={Home} />
-            <Route path="/contact" component={Contact} />
+            <Route component={Home} />
           </Switch>
         </div>
       </BrowserRouter>

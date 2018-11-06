@@ -9,7 +9,7 @@ const initState={
 export const user = (state=initState,actions)=>{
   switch (actions.type) {
     case 'LOGIN_SUCCESS':
-      return { ...state, meg: null, isAuth: true, redirectTo:'/home' }
+      return { ...state, meg: null, isAuth: true, redirectTo:'/' }
 
     case 'ERROR_MSG':
       return { ...state, meg: actions.meg, isAuth: false, hasError: true }

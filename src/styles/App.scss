@@ -55,7 +55,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #f4f4f6; // filter: blur(10px);
-  .front-content{
+  .front-content {
     margin-top: -40px;
   }
 }
@@ -247,6 +247,12 @@ body {
     animation: rotate infinite 20s linear;
   }
 }
+
+.fixed-bottom{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+} 
 
 @keyframes rotate {
   from {

@@ -1,9 +1,9 @@
 
 
 import React, { Component } from 'react';
-import { ListPage,List ,UserInfo, Contact } from "@/views";
+import { ListPage ,UserInfo, Contact } from "@/views";
 import { Route, Switch, Redirect} from "react-router-dom";
-import { NavBar } from 'antd-mobile';
+import { NavBar, Icon, Drawer, List } from 'antd-mobile';
 import NavTabBar from '@/components/NavTabBar';
 
 class Home extends Component {
@@ -12,6 +12,7 @@ class Home extends Component {
     super(props);
     this.state = {
       selectedTab: 'redTab',
+      open:false
     };
   }
 
@@ -20,11 +21,12 @@ class Home extends Component {
     console.log(this.props)    
   }
 
+  clickEllipsis = (e)=>{
+    this.props.history.push('/setting')
+  }
 
   render(){
-
     const { location } = this.props
-
     const navLists = [
       {
         title:'首页',
@@ -38,7 +40,7 @@ class Home extends Component {
         path: '/list',
         icon: '',
         isHide: '',
-        component: List,
+        component: ListPage,
       },
       {
         title: '信息',
@@ -58,7 +60,9 @@ class Home extends Component {
 
     return (
       <div style={{ height: '100%'}}>
-        <NavBar mode="dark">{location.pathname==='/'? '首页': navLists.find(item => item.path === location.pathname).title}</NavBar>
+        <NavBar mode="dark" rightContent={location.pathname === '/my' ? [<Icon key="1" onClick={this.clickEllipsis} type="ellipsis" />] : [] }
+        >{location.pathname==='/'? '首页': navLists.find(item => item.path === location.pathname).title}</NavBar>
+
         <div className="content" style={{ marginTop:''}}>
           <Switch>
             {location.pathname === '/' ? <Redirect to='/listPage' /> : null}

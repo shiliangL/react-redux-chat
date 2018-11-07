@@ -6,6 +6,7 @@ import Contact from "@/views/Contact";
 import ListDetail from "@/views/ListDetail";
 import List from "@/views/List";
 import ListPage from "@/views/ListPage";
+import Setting from "@/views/Setting";
 
 export {
   Login,
@@ -16,4 +17,5 @@ export {
   List,
   ListPage,
   ListDetail,
+  Setting
 }
